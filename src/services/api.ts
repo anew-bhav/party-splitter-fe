@@ -78,14 +78,13 @@ async function post(this: ApiServiceTypes) {
 async function put(this: ApiServiceTypes) {
   const body: BodyType | File = this.file || JSON.stringify(this.data)
 
-  const headers: HeaderType = {
-    'Content-Type': this.file ? this.file.type : 'application/json',
-  }
+  // const headers: HeaderType = {
+  //   'Content-Type': this.file ? this.file.type : 'application/json',
+  // // }
 
   const options: RequestInit = {
     method: 'PUT',
-    body,
-    headers,
+    body
   }
 
   return makeRequest(this.url, options)
